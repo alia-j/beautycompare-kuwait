@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand color palette */
+  --color-rose-gold: #B76E79;
+  --color-rose-gold-light: #E8A0B0;
+  --color-rose-gold-dark: #9A5A65;
+  
+  --color-blush: #F5C6D0;
+  --color-blush-light: #FDE8ED;
+  --color-blush-deep: #E8A0B0;
+  
+  --color-gold: #D4AF37;
+  --color-gold-light: #E8D48B;
+  --color-gold-dark: #B8962E;
+  
+  --color-mauve: #8B5E7C;
+  --color-mauve-light: #C9A0C0;
+  --color-mauve-dark: #6E4760;
+  
+  --color-cream: #FFF8F0;
+  --color-cream-dark: #F5EDE3;
+  
+  --color-warm-neutral: #F5EDE3;
+  --color-warm-neutral-dark: #EBE0D0;
+  
+  --color-aubergine: #2D1B2E;
+  --color-aubergine-light: #4A3050;
+  
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-aubergine);
+  
+  /* Fonts */
+  --font-heading: var(--font-playfair), serif;
+  --font-body: var(--font-inter), var(--font-tajawal), sans-serif;
+  --font-arabic: var(--font-tajawal), sans-serif;
+
+  /* Shadows */
+  --shadow-card: 0 2px 8px rgba(183, 110, 121, 0.08), 0 1px 3px rgba(183, 110, 121, 0.06);
+  --shadow-card-hover: 0 8px 30px rgba(183, 110, 121, 0.12), 0 2px 8px rgba(183, 110, 121, 0.08);
+  --shadow-elevated: 0 10px 40px rgba(183, 110, 121, 0.15), 0 4px 12px rgba(183, 110, 121, 0.1);
+  --shadow-rose: 0 10px 15px -3px rgba(183, 110, 121, 0.15), 0 4px 6px -2px rgba(183, 110, 121, 0.05);
+
+  /* Animations */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-fade-in-up: fade-in-up 0.4s ease-out;
+}
+
+:root {
+  --background: #FFF8F0;
+  --foreground: #2D1B2E;
+  
+  /* Semantic Colors */
+  --success: #059669;
+  --warning: #D97706;
+  --error: #DC2626;
+  --info: #2563EB;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1A0F1C;
+    --foreground: #FFF8F0;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* Custom Typography Utilities */
+@utility text-hero {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+@utility text-h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+@utility text-h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+@utility text-h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+}
+
+[dir="rtl"] .text-hero {
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+}
+
+[dir="rtl"] .text-h1 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
